@@ -1,0 +1,6 @@
+revision-local/
+dist/
+*.zip
+*.log
+ORGANIZACION.md
+preview.mjs

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0a09">
+  <meta name="description" content="Distribuidora de Carnes JG. Explora nuestros ocho combos de carnes, pollo y cerdo. También vendemos res viva. Calidad que se siente, del campo a tu mesa.">
+  <title>Distribuidora de Carnes JG · Calidad que se siente</title>
+  <link rel="icon" href="logo-transparente.png" type="image/png">
+  <link rel="preload" href="parrilla-flotante.webp" as="image">
+  <link rel="stylesheet" href="styles.css?v=vercel-16">
+  <link rel="stylesheet" href="cooking.css?v=vercel-16">
+  <script src="combos.js?v=vercel-16" defer></script>
+  <script src="cooking.js?v=vercel-16" defer></script>
+  <script src="app.js?v=vercel-16" defer></script>
+  <script src="cart.js?v=vercel-16" defer></script><script src="menu.js?v=vercel-16" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Distribuidora de Carnes JG, inicio"><img src="logo-transparente.png" width="1536" height="1024" alt="Distribuidora de Carnes JG. Calidad que se siente"></a>
+    <nav aria-label="Navegación principal"><a href="#inicio">Inicio</a><div class="combo-menu"><button type="button" id="combos-menu-toggle" aria-expanded="false" aria-controls="combos-submenu">Combos <span aria-hidden="true">⌄</span></button><div id="combos-submenu" class="combos-submenu" hidden><p>ELIGE TU COMBO</p><a class="all-combos" href="#combos">TODOS <span aria-hidden="true">→</span></a><div id="combo-menu-links"></div></div></div><a href="#res-viva">Res viva</a><a href="#fuego">La parrilla</a><a href="#origen">Nosotros</a><a href="#galeria">Galería</a></nav>
+    <button id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="Pausar animaciones"><span aria-hidden="true">Ⅱ</span><span class="motion-label">Pausar efectos</span></button>
+    <button type="button" class="cart-trigger" id="cart-open" aria-haspopup="dialog">Mi carrito <span id="cart-count">0</span></button>
+  </header>
+  <main id="contenido">
+    <section data-view="inicio" class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-photo"><img src="parrilla-flotante.webp" width="1024" height="1536" alt="Cortes de res suspendidos sobre una parrilla encendida" fetchpriority="high"><div class="heat-light"></div></div>
+      <canvas id="embers" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Distribuidora de Carnes JG</p>
+        <h1 id="hero-title">DEL CAMPO.<br>A TU <em>MESA.</em></h1>
+        <p class="hero-description">Hay momentos que empiezan con una buena carne.<br>Y una buena carne empieza con JG.</p>
+        
+        <p class="signature">Calidad que se siente.</p><p class="livestock-link">También vendemos res viva.</p>
+      </div>
+      <div class="hero-bottom"><span>RES &nbsp; / &nbsp; CERDO &nbsp; / &nbsp; POLLO &nbsp; / &nbsp; MARISCOS</span><span>CALIDAD QUE SE SIENTE</span></div>
+    </section>
+    <div data-view="inicio" class="brand-strip" aria-hidden="true"><span>BUENA CARNE</span><i>✦</i><span>BUENOS MOMENTOS</span><i>✦</i><span>CALIDAD QUE SE SIENTE</span><i>✦</i></div>
+    <section data-view="res-viva" class="livestock-section section" id="res-viva" aria-labelledby="livestock-title">
+      <div class="livestock-intro">
+        <div class="livestock-copy"><p class="eyebrow">UNA OPCIÓN MÁS CON JG</p><h2 id="livestock-title">Venta de<br><em>res viva.</em></h2><p>Además de nuestros cortes y combos, en Distribuidora de Carnes JG también vendemos res viva.</p><p>Cuéntanos qué estás buscando. La cantidad de animales, sus características y el lugar de entrega son el punto de partida para consultar esta opción.</p><div class="livestock-seal"><span aria-hidden="true">✦</span> DEL CAMPO · DISTRIBUIDORA JG</div></div>
+        <figure class="livestock-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Cattle_in_Los_Llanos%2C_Colombia_by_Luis_Perez.jpg" width="1024" height="768" alt="Bovinos en un corral rural de los Llanos Orientales de Colombia" loading="lazy" referrerpolicy="no-referrer"><figcaption>Imagen ilustrativa. Foto de <a href="https://commons.wikimedia.org/wiki/File:Cattle_in_Los_Llanos,_Colombia_by_Luis_Perez.jpg" target="_blank" rel="noopener noreferrer">Luis Pérez</a> · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>. Encuadre adaptado.</figcaption></figure>
+      </div>
+      <div class="livestock-guide"><div class="livestock-guide-heading"><p class="eyebrow">PREPARA TU CONSULTA</p><h3>Una compra empieza<br>con <em>buena información.</em></h3></div><p>Estos datos ayudan a plantear lo que necesitas y a confirmar las condiciones antes de decidir.</p></div>
+      <div class="livestock-cards">
+        <article><span class="livestock-number">01 / TU SELECCIÓN</span><h3>Qué estás buscando</h3><p>Indica cuántos animales necesitas y qué características te interesan. Consulta el tipo de ganado, la edad y el peso aproximado de los animales disponibles.</p></article>
+        <article><span class="livestock-number">02 / LA COTIZACIÓN</span><h3>El valor de la compra</h3><p>Solicita el precio de los animales que te interesan y confirma cómo se calcula. Revisa qué incluye la cotización y cuáles son las condiciones de pago.</p></article>
+        <article><span class="livestock-number">03 / LA ENTREGA</span><h3>Cómo organizarla</h3><p>Ten a mano el lugar y la fecha que necesitas. Confirma el punto de entrega o recogida, quién organiza el traslado y si tiene un costo adicional.</p></article>
+      </div>
+      <div class="livestock-faq"><div><p class="eyebrow">ANTES DE DECIDIR</p><h3>Lo que conviene<br><em>tener claro.</em></h3><p>La disponibilidad y las condiciones de cada compra deben confirmarse directamente con JG.</p></div><div class="livestock-questions">
+        <details open><summary>¿El ganado de la foto está a la venta?</summary><p>La fotografía es una imagen de referencia. Para conocer los animales disponibles, solicita información y fotografías actuales de la selección que te interesa.</p></details>
+        <details><summary>¿Dónde puedo consultar el precio?</summary><p>El precio de res viva se consulta de forma individual. Indica la cantidad y las características que buscas para solicitar una cotización; no se aplican los precios de nuestros combos.</p></details>
+        <details><summary>¿Qué debo confirmar antes de comprar?</summary><p>Disponibilidad, características del animal, valor total, forma de pago y condiciones de entrega o recogida. Confirma también si el transporte forma parte de la cotización.</p></details>
+      </div></div>
+    </section>
+    <section data-view="fuego" class="fire-story" id="fuego" aria-labelledby="fire-title">
+      <div class="story-sticky">
+        <div class="story-images" aria-hidden="true"><img class="story-raw" src="corte-crudo.webp" width="1024" height="1536" alt="" loading="lazy"><img class="story-falling" src="parrilla-flotante.webp" width="1024" height="1536" alt="" loading="lazy"><img class="story-cooked" src="corte-asado.webp" width="1145" height="1374" alt="" loading="lazy"><div class="heat-light"></div></div>
+        <div class="story-copy"><p class="eyebrow">EL SABOR TIENE UN RECORRIDO</p><h2 id="fire-title">Un buen corte.<br>El fuego justo.<br><em>Un gran momento.</em></h2><p>De la frescura del corte a ese primer bocado.<br>Tú pones la ocasión. Nosotros, la carne.</p><div class="story-steps" role="group" aria-label="Elegir etapa de la parrilla"><button type="button" class="active" data-stage="0" aria-pressed="true">01 · El corte</button><button type="button" data-stage="1" aria-pressed="false">02 · La parrilla</button><button type="button" data-stage="2" aria-pressed="false">03 · El asado</button></div><p class="scroll-note">Baja para recorrer la animación o elige una etapa con los botones.</p></div>
+        <div class="story-progress" aria-hidden="true"><div></div></div>
+      </div>
+    </section>
+    <section data-view="combos" class="combos-section section" id="combos" aria-labelledby="combos-title">
+      <div class="section-heading reveal"><div><p class="eyebrow">LA SELECCIÓN PARA TU MESA</p><h2 id="combos-title">Ocho combos.<br><em>Mucho por compartir.</em></h2></div><p>Res, cerdo, pollo y acompañamientos.<br>Explora cada combo y encuentra el tuyo.</p></div>
+      <div class="combo-grid" id="combo-grid"></div>
+      <noscript><p>Activa JavaScript para explorar el contenido de los ocho combos.</p></noscript>
+      <p class="photo-note">Las fotografías son imágenes de presentación. Consulta el contenido de cada combo.</p>
+    </section>
+    <section data-view="presentacion" id="presentacion-combo" class="combo-showcase" aria-labelledby="showcase-title" hidden></section><section data-view="detalle" id="detalle-combo" class="detail-section section" aria-labelledby="detail-title" hidden tabindex="-1"></section>
+    <section data-view="origen" class="origin-section section" id="origen" aria-labelledby="origin-title">
+      <div class="origin-image reveal"><img src="carniceria.webp" width="1536" height="1536" loading="lazy" alt="Presentación de la marca JG con selección de carnes en una carnicería"><span class="image-caption">DISTRIBUIDORA DE CARNES JG</span></div>
+      <div class="origin-copy reveal"><p class="eyebrow">NUESTRA ESENCIA</p><h2 id="origin-title">Más que carne.<br><em>Es confianza.</em></h2><p>Una comida en familia. Un asado con amigos. Una mesa que se llena de buenos momentos.</p><p>En JG reunimos carnes de res, cerdo, pollo y mariscos en combos para que elijas lo que quieres llevar a tu mesa. También ofrecemos venta de res viva.</p><div class="values"><div><span>01</span><h3>Variedad para elegir</h3><p>Cortes y acompañamientos en ocho combinaciones.</p></div><div><span>02</span><h3>Todo a la vista</h3><p>Conoce las cantidades y el contenido de cada combo.</p></div><div><span>03</span><h3>Calidad que se siente</h3><p>El sello que acompaña a nuestra marca.</p></div></div></div>
+    </section>
+    <section data-view="galeria" class="gallery-section section" id="galeria" aria-labelledby="gallery-title"><div class="section-heading reveal"><div><p class="eyebrow">EL UNIVERSO JG</p><h2 id="gallery-title">Una selección<br>que <em>abre el apetito.</em></h2></div><div class="gallery-controls"><button id="gallery-prev" aria-label="Ver imagen anterior">‹</button><button id="gallery-next" aria-label="Ver imagen siguiente">›</button></div></div><div class="gallery-track" id="gallery-track" tabindex="0" aria-label="Galería de imágenes de presentación de la marca"></div><p class="photo-note">Imágenes de presentación de Distribuidora de Carnes JG.</p></section>
+    <section data-view="combos" class="closing section"><img src="familia.webp" width="1536" height="1287" loading="lazy" alt="Una mesa de carnes y acompañamientos para compartir en familia"><div class="closing-copy reveal"><p class="eyebrow">BUENA CARNE. BUENOS MOMENTOS.</p><h2>La próxima ocasión<br><em>empieza en tu mesa.</em></h2></div></section>
+  </main>
+  <footer><span class="footer-brand"><img src="logo-transparente.png" width="1536" height="1024" alt="Distribuidora de Carnes JG"></span><p>Calidad que se siente.</p><small>© <span id="year">2026</span> Distribuidora de Carnes JG</small></footer>
+  <svg class="effect-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><filter id="heat"><feTurbulence type="fractalNoise" baseFrequency=".012 .04" numOctaves="2" seed="5"><animate attributeName="baseFrequency" values=".012 .04;.016 .055;.012 .04" dur="4s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="7"/></filter></defs></svg>
+  <button type="button" class="whatsapp-float" id="whatsapp-contact" aria-label="Consultar por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.7 15L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.4-.2-2.7.7.7-2.6-.3-.5A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.2l-.7.9c-.1.2-.3.2-.5.1-1.3-.6-2.3-1.5-3-2.7-.2-.3 0-.4.1-.5l.5-.6c.1-.2.2-.3.1-.5l-.7-1.7c-.2-.4-.3-.4-.6-.4H9c-.2 0-.4.1-.6.3-.6.6-.8 1.3-.7 2.1.2 1.5 1.4 3.2 3.1 4.6 1.5 1.2 3.3 1.8 4.3 1.5.8-.2 1.4-.8 1.6-1.5.1-.3.1-.6 0-.7l-.3-.3Z"/></svg><span>WhatsApp</span></button>
+  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title"><div class="cart-heading"><div><p class="eyebrow">TU SELECCIÓN JG</p><h2 id="cart-title">Mi <em>carrito.</em></h2></div><button type="button" id="cart-close" class="cart-close" aria-label="Cerrar carrito">×</button></div><p class="cart-intro">Reúne tus combos y consulta el pedido por WhatsApp.</p><div id="cart-items"></div><div class="cart-summary" id="cart-summary" hidden><span>Total de los combos</span><strong id="cart-total"></strong><p>El envío y la disponibilidad se confirman con JG.</p></div><p id="cart-status" class="cart-status" role="status"></p><button type="button" id="cart-send" class="order-button" disabled>Consultar pedido por WhatsApp</button><p class="cart-footnote">Se abrirá WhatsApp con tu selección escrita. Tú revisas el mensaje y lo envías.</p></dialog>
+  <dialog id="contact-dialog" class="cart-dialog contact-dialog" aria-labelledby="contact-title"><div class="cart-heading"><h2 id="contact-title">Hablemos por<br><em>WhatsApp.</em></h2><button type="button" id="contact-close" class="cart-close" aria-label="Cerrar consulta">×</button></div><p id="contact-description">Elige el número al que quieres escribir.</p><div id="whatsapp-options"></div></dialog>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

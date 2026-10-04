@@ -1,0 +1,73 @@
+/* Live layers use transparent fire imagery; each combo keeps its own photo. */
+.cooking-host{position:relative;isolation:isolate;overflow:hidden}
+.cooking-scene{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.combo-photo>img{filter:none!important;position:relative;z-index:0;object-position:center;transform-origin:50% 70%;transition:transform .7s!important}
+.combo-photo:after{z-index:1;background:linear-gradient(0deg,#0b06084d,transparent 38%)}
+.combo-index{z-index:5!important}
+.live-fire{position:absolute;bottom:-22%;left:-20%;width:140%;height:82%;background-image:url('fire-atlas.webp');background-size:400% 100%;background-repeat:no-repeat;mask-image:linear-gradient(0deg,#000 0%,#000 32%,#000b 47%,transparent 70%);mix-blend-mode:screen;filter:saturate(1.15);opacity:.78;transform-origin:50% 100%;animation:fire-frames .48s steps(1) infinite,fire-sway 1.1s ease-in-out infinite alternate;animation-delay:var(--scene-delay,0s)}
+.live-fire-b{left:10%;bottom:-26%;width:105%;height:75%;opacity:.48;animation-delay:calc(var(--scene-delay,0s) - .24s);transform:scaleX(-1)}
+.live-coals{position:absolute;inset:auto 0 -5%;height:27%;background:radial-gradient(ellipse at 28% 85%,#ff641750,transparent 58%),radial-gradient(ellipse at 76% 95%,#ffb54870,transparent 65%);mix-blend-mode:screen;animation:coal-pulse .85s ease-in-out infinite alternate;animation-delay:var(--scene-delay,0s)}
+.live-smoke{position:absolute;inset:-5% -20% -10%;background-image:url('fire-atlas.webp');background-size:400% 100%;background-position:0 center;mask-image:linear-gradient(0deg,transparent 49%,#000 69%,transparent 100%);opacity:0;mix-blend-mode:screen;filter:blur(3px);transform-origin:50% 100%;animation:smoke-drift 3.8s linear infinite;animation-delay:var(--scene-delay,0s)}
+.live-smoke-b{background-position:66.6667% center;animation-delay:calc(var(--scene-delay,0s) - 1.9s)}
+.live-sparks{position:absolute;inset:0;overflow:hidden}
+.live-sparks i{position:absolute;bottom:0;left:20%;width:3px;height:9px;border-radius:50%;background:#ffa645;box-shadow:0 0 8px #ff721b;opacity:0;animation:spark-flight 1.7s linear infinite;animation-delay:var(--scene-delay,0s)}
+.live-sparks i:nth-child(2){left:39%;animation-delay:calc(var(--scene-delay,0s) - .4s);height:5px}
+.live-sparks i:nth-child(3){left:58%;animation-delay:calc(var(--scene-delay,0s) - .9s)}
+.live-sparks i:nth-child(4){left:76%;animation-delay:calc(var(--scene-delay,0s) - 1.2s);width:2px}
+.live-sparks i:nth-child(5){left:88%;animation-delay:calc(var(--scene-delay,0s) - .6s);height:6px}
+.cooking-host:not(.cooking-visible) .cooking-scene *,.cooking-paused .cooking-scene *,.cooking-hidden .cooking-scene *{animation-play-state:paused!important}
+.combo-photo.cooking-entered>img{animation:photo-arrival 1.1s cubic-bezier(.15,.65,.25,1) both,photo-breathe 7s ease-in-out 1.1s infinite alternate!important}
+.combo-card:hover .live-fire{opacity:1;height:92%;transition:height .35s}
+.combo-card:hover .combo-photo>img{animation-play-state:paused!important;transform:scale(1.075)!important}
+.detail-cooking-photo{position:relative;overflow:hidden;aspect-ratio:4/5}
+.detail-cooking-photo>img{height:100%;width:100%;object-fit:cover}
+.detail-cooking-photo .live-fire{height:64%;bottom:-18%;opacity:.7}
+.hero-photo.cooking-host{position:absolute;isolation:isolate}
+.hero-photo .cooking-scene{z-index:1}
+.hero-photo .live-fire{height:54%;bottom:-15%;opacity:.68}
+.hero-photo .live-fire-b{height:46%;bottom:-13%}
+.hero-photo .live-smoke{inset:15% -10% -10%;opacity:.2}
+.hero-photo:after{z-index:3}
+.hero-photo .live-flame-layer{z-index:1}
+.hero-photo.cooking-entered{animation:hero-arrival 1.4s cubic-bezier(.15,.65,.25,1) both!important}
+.still .cooking-scene{display:none}.still .combo-photo>img{animation:none!important;transform:none!important}
+@keyframes fire-frames{0%,100%{background-position:0 50%}25%{background-position:33.3333% 50%}50%{background-position:66.6667% 50%}75%{background-position:100% 50%}}
+@keyframes fire-sway{from{transform:translateX(-3%) scaleY(.85) skewX(-4deg)}to{transform:translateX(3%) scaleY(1.13) skewX(4deg)}}
+@keyframes coal-pulse{from{opacity:.35}to{opacity:1}}
+@keyframes smoke-drift{0%{opacity:0;transform:translate(-6%,20%) scale(.85)}25%{opacity:.23}65%{opacity:.18}100%{opacity:0;transform:translate(12%,-30%) scale(1.25)}}
+@keyframes spark-flight{0%{opacity:0;transform:translate(0,0) rotate(-15deg)}15%{opacity:.95}80%{opacity:.55}100%{opacity:0;transform:translate(35px,-260px) rotate(40deg)}}
+@keyframes photo-arrival{0%{transform:translateY(-28%) rotate(-5deg) scale(1.12);opacity:0}65%{transform:translateY(2%) rotate(1deg) scale(1.04);opacity:1}100%{transform:translateY(0) rotate(0) scale(1.04);opacity:1}}
+@keyframes photo-breathe{from{transform:scale(1.04) translateY(0)}to{transform:scale(1.12) translateY(-2%)}}
+@keyframes hero-arrival{0%{opacity:0;transform:translateY(-13%) rotate(-3deg)}65%{opacity:1;transform:translateY(1%) rotate(.4deg)}100%{opacity:1;transform:none}}
+@media(max-width:700px){.live-fire{height:87%;bottom:-23%;opacity:.8}.detail-cooking-photo{aspect-ratio:4/5}.hero-photo .live-fire{height:40%;bottom:-10%}.hero-photo .live-smoke{inset:35% -10% 0}.live-sparks i{width:2px;height:5px}}
+@media(prefers-reduced-motion:reduce){body.motion-enabled .cooking-visible .cooking-scene *{animation-play-state:running!important}body.motion-enabled .live-fire{animation:fire-frames .48s steps(1) infinite,fire-sway 1.1s ease-in-out infinite alternate!important}body.motion-enabled .live-smoke{animation:smoke-drift 3.8s linear infinite!important}body.motion-enabled .live-coals{animation:coal-pulse .85s ease-in-out infinite alternate!important}body.motion-enabled .live-sparks i{animation:spark-flight 1.7s linear infinite!important}}
+.live-fire,.live-coals,.live-smoke,.live-sparks i{animation-delay:var(--scene-delay,0s)!important}.live-fire-b{animation-delay:calc(var(--scene-delay,0s) - .24s)!important}.live-smoke-b{animation-delay:calc(var(--scene-delay,0s) - 1.9s)!important}.live-sparks i:nth-child(2){animation-delay:calc(var(--scene-delay,0s) - .4s)!important}.live-sparks i:nth-child(3){animation-delay:calc(var(--scene-delay,0s) - .9s)!important}.live-sparks i:nth-child(4){animation-delay:calc(var(--scene-delay,0s) - 1.2s)!important}.live-sparks i:nth-child(5){animation-delay:calc(var(--scene-delay,0s) - .6s)!important}
+/* The hero fire stays inside the viewport: its flame base must not be cropped off. */
+.hero-photo .live-fire-a{left:3%;width:100%;height:78%;bottom:-2%;opacity:.85;mask-image:linear-gradient(0deg,#000 0%,#000 38%,#000b 57%,transparent 82%);filter:url(#heat) saturate(1.25) brightness(1.12)}
+.hero-photo .live-fire-b{left:24%;width:70%;height:68%;bottom:0;opacity:.55;mask-image:linear-gradient(0deg,#000 0%,#000 32%,transparent 76%);filter:url(#heat) saturate(1.2)}
+.hero-photo .live-coals{bottom:0;height:37%;background:radial-gradient(ellipse at 42% 84%,#ff81208a,transparent 61%),radial-gradient(ellipse at 78% 92%,#ffb92c9a,transparent 57%)}
+.hero-photo .live-smoke{inset:4% -7% 0;mask-image:linear-gradient(0deg,transparent 47%,#000 68%,transparent 100%)}
+.hero-photo .live-sparks i{height:12px;width:3px;animation-duration:1.3s!important}
+.hero-photo .heat-light{z-index:2;inset:45% 0 0;background:radial-gradient(ellipse at 65% 78%,#ff72104d,transparent 66%);animation:hero-glow .7s ease-in-out infinite alternate!important}
+body.motion-enabled .live-fire,body.motion-enabled .live-coals,body.motion-enabled .live-smoke,body.motion-enabled .live-sparks i{animation-delay:var(--scene-delay,0s)!important}
+body.motion-enabled .live-fire-b{animation-delay:calc(var(--scene-delay,0s) - .24s)!important}
+body.motion-enabled .live-smoke-b{animation-delay:calc(var(--scene-delay,0s) - 1.9s)!important}
+body.motion-enabled .live-sparks i:nth-child(2){animation-delay:-.4s!important}body.motion-enabled .live-sparks i:nth-child(3){animation-delay:-.9s!important}body.motion-enabled .live-sparks i:nth-child(4){animation-delay:-1.2s!important}body.motion-enabled .live-sparks i:nth-child(5){animation-delay:-.6s!important}
+@keyframes hero-glow{from{opacity:.3;transform:scale(.97)}to{opacity:.95;transform:scale(1.035)}}
+@media(max-width:700px){.hero-photo .live-fire-a{height:53%;width:110%;left:-5%;bottom:0}.hero-photo .live-fire-b{height:45%;width:88%;left:15%;bottom:0}.hero-photo .live-coals{height:26%}.hero-photo .live-smoke{inset:30% -10% 0}}
+/* Ambient seasoning: separate from the existing flame and coal layers. */
+.hero-pepper{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden}.pepper-grain{position:absolute;width:var(--grain-size);height:var(--grain-size);border-radius:42% 58% 47% 53%;background:radial-gradient(circle at 29% 22%,#b89776 0%,#5c4433 20%,#2c221b 47%,#120f0d 79%);box-shadow:inset -1px -1px 1px #000b,0 1px 2px #0009;clip-path:polygon(13% 5%,65% 0,95% 24%,100% 72%,75% 97%,27% 100%,0 61%,4% 23%);opacity:0;will-change:transform,opacity;transform-origin:center;animation:pepper-drift var(--grain-duration) linear var(--grain-delay) infinite}
+body.motion-enabled .pepper-grain{animation:pepper-drift var(--grain-duration) linear var(--grain-delay) infinite!important}
+.hero-photo .live-smoke,body.motion-enabled .hero-photo .live-smoke{animation:ambient-haze 7.2s linear infinite!important;filter:blur(7px);mask-image:linear-gradient(0deg,transparent 46%,#000 70%,transparent 98%)}
+body.motion-enabled .hero-photo .live-smoke-b{animation-delay:-3.6s!important}
+@keyframes pepper-drift{0%{opacity:0;transform:translate(-14px,-24px) rotate(-35deg) scale(.75)}18%{opacity:.8}72%{opacity:.85}100%{opacity:0;transform:translate(20px,var(--grain-travel)) rotate(215deg) scale(1.08)}}
+@keyframes ambient-haze{0%{opacity:0;transform:translate(-2%,10%) scale(.94)}30%{opacity:.085}70%{opacity:.055}100%{opacity:0;transform:translate(5%,-13%) scale(1.13)}}
+@media(max-width:700px){.pepper-grain{width:calc(var(--grain-size)*.85);height:calc(var(--grain-size)*.85)}.hero-pepper{inset:10% 0 0}}
+/* Restore the photographed fire. Added flame, coal and flare layers are removed. */
+.live-fire,.live-coals,.live-sparks{display:none!important}.hero-photo .heat-light,.hero-photo .live-flame-layer{display:none!important}
+.hero-photo .live-smoke{background-position:33.3333% center;mask-image:linear-gradient(0deg,transparent 54%,#000 73%,transparent 98%)}
+/* Ambient smoke and pepper over the existing parrilla sequence. */
+.story-images .cooking-scene{z-index:3}.story-images .live-smoke,body.motion-enabled .story-images .live-smoke{inset:0 -10%;background:radial-gradient(ellipse at 60% 65%,#dfd8cf66,transparent 26%),radial-gradient(ellipse at 75% 40%,#e4ded455,transparent 27%),radial-gradient(ellipse at 48% 25%,#eee5d933,transparent 30%);background-size:100% 100%;mask-image:linear-gradient(0deg,transparent,#000 35%,#000 80%,transparent);filter:blur(16px);animation:parrilla-haze 8s linear infinite!important;mix-blend-mode:screen}.story-images .live-smoke-b,body.motion-enabled .story-images .live-smoke-b{animation-delay:-4s!important}.story-images .hero-pepper{z-index:4}.story-images:after{z-index:4;pointer-events:none}
+@keyframes parrilla-haze{0%{opacity:0;transform:translate(-3%,12%) scale(.9)}30%{opacity:.28}65%{opacity:.19}100%{opacity:0;transform:translate(6%,-23%) scale(1.2)}}
+.story-images.cooking-host{position:absolute}
+

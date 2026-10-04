@@ -1,0 +1,8 @@
+{
+  "name": "distribuidora-carnes-jg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web de Distribuidora de Carnes JG preparada para Vercel",
+  "scripts": {"build": "node build.mjs", "start": "node preview.mjs"},
+  "engines": {"node": ">=20"}
+}

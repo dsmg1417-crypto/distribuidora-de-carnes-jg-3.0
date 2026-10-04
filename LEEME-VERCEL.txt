@@ -1,0 +1,18 @@
+DISTRIBUIDORA DE CARNES JG — ARCHIVOS PARA SUBIR
+
+Sube TODOS los archivos que están directamente dentro de carnes.
+Ahora las 18 imágenes también están directamente aquí, junto a index.html.
+No hay que subir ninguna carpeta public ni assets.
+No es necesario utilizar el ZIP.
+
+Al subir al repositorio, incluye todos los archivos .webp y logo-transparente.png.
+El archivo seleccion-carnes.webp debe quedar junto a app.js y package.json.
+
+Vercel:
+  Root Directory: raíz del repositorio
+  Framework: Other
+  Build Command: npm run build
+  Output Directory: dist
+
+No es necesario subir dist ni revision-local.
+Actualiza los archivos del repositorio y despliega el nuevo cambio.
